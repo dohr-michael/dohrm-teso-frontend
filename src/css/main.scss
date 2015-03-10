@@ -1,0 +1,20 @@
+// Bootstrap customization
+$icon-font-path: "../fonts/vendor/bootstrap/";
+// $grid-float-breakpoint: 100px;
+// $modal-md: 768px;
+// $modal-lg: 1024px;
+
+// Font-awesome customization
+$fa-font-path: "../fonts/vendor/fontawesome";
+
+
+/**
+ * Base for everything
+ */
+@import "bootstrap-compass";
+// So far the compass asset helper does not helping us so much (relative asset = true in config.rb make sass compilation failing),
+// so we disable it and set $icon-font-path directly
+$bootstrap-sass-asset-helper:false;
+
+@import 'bootstrap';
+@import 'font-awesome';
