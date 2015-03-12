@@ -18,3 +18,19 @@ $bootstrap-sass-asset-helper:false;
 
 @import 'bootstrap';
 @import 'font-awesome';
+
+/* Space out content a bit */
+body {
+    background: url(../images/teso-barbarian-breton.jpg) top center no-repeat;
+    background-color: #b9b190;
+}
+
+header {
+    text-align: center;
+}
+
+//.small-panel {
+//    @include panel(
+//    $padding: 5px
+//    );
+//}

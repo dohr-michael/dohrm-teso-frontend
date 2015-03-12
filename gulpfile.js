@@ -49,8 +49,8 @@ gulp.task('img', function(cb){
 });
 
 gulp.task('fonts', ['config'], function(cb){
-    gulp.src(global.bootstrapPath+'fonts/**/*.{eot,svg,ttf,woff,woff2}')
-        .pipe(gulp.dest('./build/fonts/vendor'));
+    //gulp.src(global.foundationPath+'fonts/**/*.{eot,svg,ttf,woff,woff2}')
+    //    .pipe(gulp.dest('./build/fonts/vendor'));
     gulp.src(global.fontawesomePath+'fonts/**/*.{eot,svg,ttf,woff,woff2}')
         .pipe(gulp.dest('./build/fonts/vendor/fontawesome'));
     gulp.src('./src/fonts/**/*.{eot,svg,ttf,woff,woff2}')
