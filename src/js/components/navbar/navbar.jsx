@@ -6,6 +6,10 @@ var React = require('react/addons'),
     NavbarItemDropdown = require('./navbar-item-dropdown');
 
 var Navbar = React.createClass({
+    propTypes: {
+        name: React.PropTypes.string.isRequired,
+        items: React.PropTypes.array.isRequired
+    },
 
     renderHeader() {
         var brandLink = this.props.name ? (<Link to="home" className="navbar-brand">{this.props.name}</Link>) : null;

@@ -5,6 +5,11 @@ var React = require('react/addons'),
     Link = Rooter.Link;
 
 var NavbarItemDropdown = React.createClass({
+    propTypes: {
+        name: React.PropTypes.string.isRequired,
+        target: React.PropTypes.string,
+        type: React.PropTypes.oneOf(['separator', 'link'])
+    },
     generateRow(item) {
         if (item.type === 'separator') {
             return (<li key={item.target} className="divider"></li>);
