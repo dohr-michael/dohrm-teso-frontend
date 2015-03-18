@@ -1,12 +1,13 @@
 var React = require('react/addons'),
     RouteHandler = require('react-router').RouteHandler,
-    Menu = require('./menu');
-require('bootstrap');
+    MenuStore = require('../store/MenuStore'),
+    Navbar = require('../components/navbar').Navbar;
+
 var App = React.createClass({
     render() {
         return (
             <div>
-                <Menu />
+                <Navbar name="The Elder Scroll Online Tools" items={MenuStore.menuItems} />
                 <div className="container">
                     <RouteHandler />
                 </div>

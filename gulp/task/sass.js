@@ -10,7 +10,7 @@ gulp.task('sass', ['config'], function () {
             compass: true,
             bundleExec: false,
             precision: 10,
-            loadPath: [global.bootstrapPath+'stylesheets/', global.fontawesomePath+'scss/'],
+            loadPath: [global.foundationPath + 'scss/', global.bootstrapPath+'stylesheets/', global.fontawesomePath+'scss/'],
             sourcemap: false              //TODO: upgrade to SASS 3.3.x to support sourcemap
             //sourcemapPath: './src/css/' //TODO: upgrade to SASS 3.3.x to support sourcemap
         })

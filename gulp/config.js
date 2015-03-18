@@ -11,6 +11,8 @@ gulp.task('config', function(cb){
 
     // Bootstrap path configuration
     global.bootstrapPath = 'node_modules/bootstrap-sass/assets/';
+    // Foundation path configuration
+    global.foundationPath = 'node_modules/foundation/';
 
     // Font-Awesome path configuration
     global.fontawesomePath = 'node_modules/font-awesome/';

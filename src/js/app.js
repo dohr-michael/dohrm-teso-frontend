@@ -1,6 +1,8 @@
 var React = require('react/addons'),
     Router = require('react-router'),
     routes = require('./main/routes');
+require('bootstrap');
+
 
 if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
     // MSIE
