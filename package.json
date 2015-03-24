@@ -26,6 +26,7 @@
     "pubsub-js": "^1.5.2",
     "react": "^0.12.2",
     "react-bootstrap": "^0.16.1",
+    "react-breadcrumbs": "^0.2.13",
     "react-responsive-mixin": "^0.3.3",
     "react-router": "^0.12.4",
     "reflux": "^0.2.5"

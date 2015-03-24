@@ -48,6 +48,12 @@ gulp.task('img', function(cb){
     cb();
 });
 
+gulp.task('favicon', function(cb){
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest('./build'));
+    cb();
+});
+
 gulp.task('fonts', ['config'], function(cb){
     //gulp.src(global.foundationPath+'fonts/**/*.{eot,svg,ttf,woff,woff2}')
     //    .pipe(gulp.dest('./build/fonts/vendor'));
@@ -77,7 +83,7 @@ gulp.task('watch', ['watchify'], function(cb) {
 gulp.task('default', function(cb){
     runSequence(
         'clean',
-        ['sass', 'html', 'fonts', 'img'],
+        ['sass', 'html', 'fonts', 'img', 'favicon'],
         'watch',
         'serve',
         cb
@@ -87,7 +93,7 @@ gulp.task('default', function(cb){
 gulp.task('build-prod', function(cb){
     runSequence(
         'clean',
-        ['sass', 'html', 'fonts', 'img'],
+        ['sass', 'html', 'fonts', 'img', 'favicon'],
         'browserify-prod',
         cb
     );
@@ -96,7 +102,7 @@ gulp.task('build-prod', function(cb){
 gulp.task('build-test', function(cb){
     runSequence(
         'clean',
-        ['sass', 'html', 'fonts', 'img'],
+        ['sass', 'html', 'fonts', 'img', 'favicon'],
         'browserify-test',
         cb
     );
@@ -105,7 +111,7 @@ gulp.task('build-test', function(cb){
 gulp.task('build-staging', function(cb){
     runSequence(
         'clean',
-        ['sass', 'html', 'fonts', 'img'],
+        ['sass', 'html', 'fonts', 'img', 'favicon'],
         'browserify-staging',
         cb
     );
