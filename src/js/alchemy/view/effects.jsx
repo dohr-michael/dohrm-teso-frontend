@@ -7,22 +7,26 @@ var React = require('react/addons'),
     _ = require('lodash'),
     actions = require('../actions');
 
-var IngredientRow = React.createClass({
+var EffectRow = React.createClass({
     propTypes: {
-        ingredient: React.PropTypes.object.isRequired
+        effect: React.PropTypes.object.isRequired
     },
     render() {
         return (
             <tr>
                 <td>
                     <span>
-                        <Img src={this.props.ingredient.image} />
-                    &nbsp;{this.props.ingredient.name}
+                        {this.props.effect.name}
                     </span>
                 </td>
                 <td>
                     <ul>
-                        {_.sortBy(this.props.ingredient.effects, 'name').map((effect)=>(<li>{effect.name}</li>))}
+                        {_.sortBy(this.props.effect.ingredients, 'name').map((ingredient)=>(
+                            <li>
+                                <Img src={ingredient.image} />
+                                &nbsp;{ingredient.name}
+                            </li>
+                        ))}
                     </ul>
                 </td>
             </tr>
@@ -32,27 +36,27 @@ var IngredientRow = React.createClass({
 
 
 module.exports = React.createClass({
-    displayName: "Ingredients",
+    displayName: "Effets",
     mixins: [
         Router.Navigation,
         Router.State,
         React.addons.LinkedStateMixin,
-        Reflux.connect(Store, 'ingredients')
+        Reflux.connect(Store, 'effects')
     ],
     getInitialState() {
         return {
-            ingredients: Store.ingredients,
+            effects: Store.effects,
             search: ''
         };
     },
     componentWillMount() {
-        actions.fetchAllIngredients();
+        actions.fetchAllEffects();
     },
-    search(ingredient) {
+    search(effect) {
         var idxOf = (name) => (name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1);
-        return ingredient &&
-            (ingredient.name && idxOf(ingredient.name) ||
-            ingredient.effects && _.findIndex(ingredient.effects, (effect)=>(idxOf(effect.name))) > -1);
+        return effect &&
+            (effect.name && idxOf(effect.name) ||
+            effect.effects && _.findIndex(effect.ingredients, (ingredient)=>(idxOf(ingredient.name))) > -1);
     },
     render() {
         var filter = this.state.search !== '' ? this.search : () => true;
@@ -60,7 +64,7 @@ module.exports = React.createClass({
             <div className="container-fluid">
                 <div className="row">
                     <input className="col-xs-12 form-control" type="text"
-                        placeholder="Filter by name / effect" autofocus valueLink={this.linkState('search')}/>
+                        placeholder="Filter by name / ingredients" autofocus valueLink={this.linkState('search')}/>
                 </div>
                 <br/>
                 <div className="row">
@@ -68,12 +72,12 @@ module.exports = React.createClass({
                         <thead>
                             <tr>
                                 <th width="50%">Name</th>
-                                <th width="50%">Effects</th>
+                                <th width="50%">Ingredients</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {_.sortBy(this.state.ingredients.filter(filter), 'name').map((item)=>(
-                                <IngredientRow key={item.ref} ingredient={item}/>
+                            {_.sortBy(this.state.effects.filter(filter), 'name').map((item)=>(
+                                <EffectRow key={item.ref} effect={item}/>
                             ))}
                         </tbody>
                     </table>
@@ -82,4 +86,3 @@ module.exports = React.createClass({
         );
     }
 });
-

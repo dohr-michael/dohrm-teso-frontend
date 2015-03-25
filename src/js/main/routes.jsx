@@ -16,7 +16,7 @@ var routes = (
         <DefaultRoute handler={Todo} />
         <Route name="alchemy" handler={Alchemy.Alchemy}>
             <Route name="alchemy_ingredients" path="/alchemy/ingredients" handler={Alchemy.Ingredients}/>
-            <Route name="alchemy_effects" path="/alchemy/effects" handler={Todo}/>
+            <Route name="alchemy_effects" path="/alchemy/effects" handler={Alchemy.Effects}/>
             <Route name="alchemy_ingredients_recipes" path="/alchemy/ingredients/recipes" handler={Todo}/>
             <NotFoundRoute handler={Todo}/>
         </Route>
