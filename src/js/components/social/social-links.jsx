@@ -23,7 +23,7 @@ var SocialLinks = React.createClass({
         return (
             <ul className="list-inline">
                 {links.map((item, idx)=>(
-                    <li ref={'link' + idx}>
+                    <li key={'link-' + idx}>
                         <a href={item.link} target="_blank"><i className={item.style}></i></a>
                     </li>
                 ))}
